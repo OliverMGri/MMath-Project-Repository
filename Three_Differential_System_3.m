@@ -18,7 +18,6 @@ hold on;
 plot(t,p,'-', 'LineWidth',2);
 l=legend('$c$ : Ca$^{2+}$ concentration','$h$ : Fraction of active IP$_3$Rs', '$p$ : IP$_3$ concentration');
 set(l, 'interpreter', 'latex')
-%hold off;
 set(gca, "FontSize", 16)
 exportgraphics(gca,'p_cos_1.png','Resolution',300)
 
