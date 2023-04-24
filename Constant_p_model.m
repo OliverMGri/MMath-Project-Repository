@@ -16,7 +16,6 @@ plot(t,h,'-', 'LineWidth',2);
 l=legend('$c$ : Ca$^{2+}$ concentration','$h$ : Fraction of active IP$_3$Rs');
 set(l, 'interpreter', 'latex')
 set(gca, "FontSize", 16)
-%hold off;
 %exportgraphics(gca,'p_01_two_system.png','Resolution',300)
 
 %Now the model is actually introduced.
