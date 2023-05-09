@@ -16,10 +16,10 @@ a_var = linspace(0,0.8,50);
 cs_1_F=0.25;
 cs_2_F=0.05;
 v4_1_F=0.29;
-v4_2_F=0.18;
+v4_2_F=0.18; %Creating a few initial guesses for fsolve.
 
 roots_1 = [cs_1_F, v4_1_F];
-roots_2 = [cs_2_F, v4_2_F];
+roots_2 = [cs_2_F, v4_2_F]; %Combining the initial guesses.
 
 for a = a_var
     [roots_1, ~, exitflag] = fsolve(@(x)stst_trace(x,a), roots_1);
@@ -27,7 +27,7 @@ for a = a_var
     [roots_2, ~, exitflag2] = fsolve(@(x)stst_trace(x,a), roots_2);
     Roots_vec_2(veci, :) = roots_2;
     veci = veci + 1;
-end
+end %fsolve is used for different initial guesses to solve the equations and construct a matrix of different solutions for various guesses.
 
 plot3(a_var, Roots_vec_1(:, 1), Roots_vec_1(:,2))
 hold on
@@ -37,9 +37,9 @@ ylabel('c')
 zlabel('$v_4$')
 %legend('1', '2')
 set(gca, "FontSize", 16)
-%exportgraphics(gca,'Trace_Steady_States_Graph_fsolve_3D.png','Resolution',300)
+%exportgraphics(gca,'Trace_Steady_States_Graph_fsolve_3D.png','Resolution',300) %The solutions are plotted in terms of alpha, the steady states of c and v_4.
 
-function F=stst_trace(x,a)
+function F=stst_trace(x,a) %This function forms the equations to find the steady states of c and the trace of the jacobian.
 c=x(1);
 v4=x(2);
 K_act=210*(10^(-9));
